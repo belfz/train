@@ -1,5 +1,6 @@
 import Test.HUnit
 import Train
+import System.Exit
 
 shortTrain :: Train Int
 shortTrain = Car 1 Engine
@@ -39,3 +40,12 @@ tests = TestList [
     TestLabel "reverse a train" testRev0,
     TestLabel "reverse a train" testRev1
   ]
+
+main :: IO ()
+main = do
+  results <- runTestTT $ tests
+  if (errors results + failures results == 0)
+    then
+      exitWith ExitSuccess
+    else
+      exitWith (ExitFailure 1)

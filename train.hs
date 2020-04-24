@@ -5,7 +5,7 @@ import Data.Maybe
 import Control.Applicative
 import Control.Monad
 
--- data streucture definition
+-- data structure definition
 data Train a = Engine | Car a (Train a) deriving (Eq, Show)
 
 -- basic operations
