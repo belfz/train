@@ -48,6 +48,8 @@ len :: Train a -> Int
 len train = lrec train 0
   where lrec Engine n       = n
         lrec (Car _ tail) n = lrec tail (n + 1)
+        
+-- TODO add semigroup instance     
 
 -- functor typeclass impl
 instance Functor Train where
